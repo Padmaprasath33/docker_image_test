@@ -4,4 +4,8 @@
 cp /app/index.html /usr/share/nginx/html/index.html
 
 # Continue with the default entrypoint (e.g., starting the Nginx server)
-exec "$@"
+#exec "$@"
+
+while true; do
+  sleep 10
+done
