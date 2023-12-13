@@ -17,17 +17,17 @@ phases:
       # Step 3: Build Docker image
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t 500452054617.dkr.ecr.us-east-1.amazonaws.com/2191420-cohort-demo-ui:$IMAGE_TAG .
-      - docker tag 500452054617.dkr.ecr.us-east-1.amazonaws.com/2191420-cohort-demo-ui:$IMAGE_TAG 500452054617.dkr.ecr.us-east-1.amazonaws.com/2191420-cohort-demo-ui:$IMAGE_TAG
+      - docker build -t 500452054617.dkr.ecr.us-east-1.amazonaws.com/cohort-demo-test-efs:$IMAGE_TAG .
+      - docker tag 500452054617.dkr.ecr.us-east-1.amazonaws.com/cohort-demo-test-efs:$IMAGE_TAG 500452054617.dkr.ecr.us-east-1.amazonaws.com/cohort-demo-test-efs:$IMAGE_TAG
   post_build:
     commands: 
       # Step 4: Push Docker image to AWS ECR
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push 500452054617.dkr.ecr.us-east-1.amazonaws.com/2191420-cohort-demo-ui:$IMAGE_TAG
+      - docker push 500452054617.dkr.ecr.us-east-1.amazonaws.com/cohort-demo-test-efs:$IMAGE_TAG
       - echo Writing image definitions file...
-      - printf '[{"name":"cohort_demo_ecs_container","imageUri":"%s"}]' 500452054617.dkr.ecr.us-east-1.amazonaws.com/2191420-cohort-demo-ui:$IMAGE_TAG > imagedefinitions.json
-      - printf '{"ImageURI":"%s"}' 500452054617.dkr.ecr.us-east-1.amazonaws.com/2191420-cohort-demo-ui:$IMAGE_TAG > imageDetail.json
+      - printf '[{"name":"cohort_demo_ecs_container","imageUri":"%s"}]' 500452054617.dkr.ecr.us-east-1.amazonaws.com/cohort-demo-test-efs:$IMAGE_TAG > imagedefinitions.json
+      - printf '{"ImageURI":"%s"}' 500452054617.dkr.ecr.us-east-1.amazonaws.com/cohort-demo-test-efs:$IMAGE_TAG > imageDetail.json
 artifacts:
   files:
     - 'image*.json'
