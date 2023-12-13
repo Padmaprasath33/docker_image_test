@@ -1,0 +1,104 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:412699049661:task-definition/2191420-cohort-demo-ui-task-definition:9",
+    "containerDefinitions": [
+        {
+            "name": "cohort_demo_ecs_container",
+            "image": "<IMAGE1_NAME>",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "mountPoints": [
+                {
+                    "sourceVolume": "2191420-cohort-demo-ecs-container-volume",
+                    "containerPath": "/usr/share/nginx/html"
+                }
+            ],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "2191420-cohort-demo-ecs-ui-log-group",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "family": "2191420-cohort-demo-ui-task-definition",
+    "taskRoleArn": "arn:aws:iam::412699049661:role/2191420-cohort-demo-ecs-task-role",
+    "executionRoleArn": "arn:aws:iam::412699049661:role/2191420-cohort-demo-ecs-task-execution-role",
+    "networkMode": "awsvpc",
+    "revision": 9,
+    "volumes": [
+        {
+            "name": "2191420-cohort-demo-ecs-container-volume",
+            "efsVolumeConfiguration": {
+                "fileSystemId": "fs-0f0b9db9a974e4ea6",
+                "rootDirectory": "/"
+            }
+        }
+    ],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "ecs.capability.efsAuth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "ecs.capability.efs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.25"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "registeredAt": "2023-12-09T14:16:31.540Z",
+    "registeredBy": "arn:aws:sts::412699049661:assumed-role/codebuild-cohort_demo-service-role/AWSCodeBuild-ac1e9202-7143-4af9-a990-f3d3e8f14db4",
+    "tags": [
+        {
+            "key": "application",
+            "value": "cohort-demo"
+        },
+        {
+            "key": "project",
+            "value": "aws-proserv"
+        },
+        {
+            "key": "environment",
+            "value": "dev"
+        }
+    ]
+}
