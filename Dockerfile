@@ -1,5 +1,5 @@
 FROM public.ecr.aws/nginx/nginx
-COPY index.html /usr/share/nginx/html
+#COPY index.html /usr/share/nginx/html
 #COPY index.html /index.html
 
 # Copy the entrypoint script to the image
@@ -18,4 +18,4 @@ COPY index.html /usr/share/nginx/html/index.html
 #WORKDIR /usr/share/nginx/html
 
 # Set the entrypoint script as the default entrypoint
-#ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
