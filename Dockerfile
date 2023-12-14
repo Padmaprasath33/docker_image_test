@@ -9,10 +9,10 @@ COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # Copy the index.html file to the /app directory during the build
-#COPY index.html /app/index.html
+COPY index.html /app/index.html
 
 # Copy the index.html file to the /efs-mount-path directory during the build
-COPY index.html /usr/share/nginx/html/index.html
+#COPY index.html /usr/share/nginx/html/index.html
 
 # Set the default working directory
 #WORKDIR /usr/share/nginx/html
