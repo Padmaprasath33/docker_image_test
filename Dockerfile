@@ -17,4 +17,4 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 #WORKDIR /usr/share/nginx/html
 
 # Set the entrypoint script as the default entrypoint
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+#ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
