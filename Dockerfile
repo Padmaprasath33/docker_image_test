@@ -17,7 +17,8 @@ COPY index.html /app/index.html
 # Set the default working directory
 WORKDIR /usr/share/nginx/html
 
-CMD cp /app/index.html /usr/share/nginx/html/index.html && nginx -g "daemon off;"
+#CMD cp /app/index.html /usr/share/nginx/html/index.html && nginx -g "daemon off;"
+CMD cp /app/index.html /usr/share/nginx/html/ui/index.html && nginx -g "daemon off;"
 
 # Set the entrypoint script as the default entrypoint
 #ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
