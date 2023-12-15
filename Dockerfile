@@ -10,6 +10,7 @@ FROM public.ecr.aws/nginx/nginx
 
 # Copy the index.html file to the /app directory during the build
 COPY index.html /app/index.html
+RUN mkdir -p /usr/share/nginx/html/ui
 
 # Copy the index.html file to the /efs-mount-path directory during the build
 #COPY index.html /usr/share/nginx/html/index.html
@@ -17,9 +18,8 @@ COPY index.html /app/index.html
 # Set the default working directory
 WORKDIR /usr/share/nginx/html
 
-RUN mkdir /usr/share/nginx/html/ui
-
 #CMD cp /app/index.html /usr/share/nginx/html/index.html && nginx -g "daemon off;"
+CMD mkdir -p /usr/share/nginx/html/ui
 CMD cp /app/index.html /usr/share/nginx/html/ui/index.html && nginx -g "daemon off;"
 
 # Set the entrypoint script as the default entrypoint
